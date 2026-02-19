@@ -11,9 +11,9 @@
 
 Kode Program [Pemilihan.java](Minggu_1/Script/Pemilihan.java)
 
-![Screenshot](Minggu_1/Image/Pasted image.png)
+![Hasil Program](Minggu_1/Image/Image1.png)
 
-**Brief explanaton:** There are 4 main step: 
+**Pertanyaan:**
 1. Input all grades
 2. Validate the input
 3. Calculate and convert the final grade
