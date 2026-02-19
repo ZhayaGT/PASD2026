@@ -8,6 +8,7 @@ public class JadwalKuliah {
 
         System.out.print("Masukkan jumlah jadwal (n): ");
         int n = jonathan16.nextInt();
+        jonathan16.nextLine();
 
         String[][] jadwal = new String[n][4];
 

@@ -9,15 +9,64 @@
 
 ## 2.1 Pemilihan
 
-Kode Program [Pemilihan.java](Minggu_1/Script/Pemilihan.java)
+**Kode Program**
+[Pemilihan.java](Script/Pemilihan.java)
 
-![Hasil Program](Minggu_1/Image/Image1.png)
+**Hasil Kode Program**
+![Hasil Program](Image/Image1.png)
+![Hasil Program](Image/Image2.png)
 
 **Pertanyaan:**
-1. Input all grades
-2. Validate the input
-3. Calculate and convert the final grade
-4. Decide the final status
+(tidak ada)
 
-## 2.1.1. Selection Solution
-Continue to report the result....
+## 2.2 Perulangan
+**Kode Program** 
+[Perulangan.java](Script/Perulangan.java)
+
+**Hasil Kode Program**
+![Hasil Program](/Minggu_1/Image/image.png)
+
+**Pertanyaan:**
+(tidak ada)
+
+## 2.3 Array
+**Kode Program** 
+[Array.java](Script/Array.java)
+
+**Hasil Kode Program**
+![Hasil Program](/Minggu_1/Image/image3.png)
+
+**Pertanyaan:**
+(tidak ada)
+
+## 2.4 Fungsi
+**Kode Program** 
+[Fungsi.java](Script/Fungsi.java)
+
+**Hasil Kode Program**
+![Hasil Program](/Minggu_1/Image/image4.png)
+
+**Pertanyaan:**
+(tidak ada)
+
+## 3.1 Tugas
+**Kode Program** 
+[PlatNomor.java](/Minggu_1/Script/PlatNomor.java)
+
+**Hasil Kode Program**
+
+![Hasil Program](/Minggu_1/Image/image5.png)
+
+**Pertanyaan:**
+(tidak ada)
+
+## 3.2 Tugas
+**Kode Program** 
+[JadwalKuliah.java](/Minggu_1/Script/JadwalKuliah.java)
+
+**Hasil Kode Program**
+
+![Hasil Program](/Minggu_1/Image/image5.png)
+
+**Pertanyaan:**
+(tidak ada)
