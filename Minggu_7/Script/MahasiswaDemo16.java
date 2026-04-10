@@ -27,27 +27,12 @@ public class MahasiswaDemo16 {
             list.Tambah(m);
         }
 
-        // System.out.println("Data Mahasiswa sebelum sorting: ");
         // list.tampil();
-
-        // System.out.println("Data Mahasiswa setelah sorting berdasarkan IPK (DESC) : ");
-        // list.bubbleSort();
-        // list.tampil();
-
-        // System.out.println("Data yang sudah terurut menggunakan SELECTION SORT (ASC) : ");
-        // list.SelectionSort();
-        // list.tampil();
-
-        // System.out.println("Data yang sudah terurut menggunakan INSERTION SORT (ASC) : ");
-        // list.InsertionSort();
-        // list.tampil();
-
-        list.tampil();
         System.out.println("----------------------------------------");
         System.out.println("Pencarian data");
         System.out.println("----------------------------------------");
         System.out.println("masukan ipk mahasiswa yang dicari: ");
-        System.out.println("IPK: ");
+        System.out.print("IPK: ");
         double cari = sc.nextDouble();
 
         System.out.println("Menggunakan sequential searching");
@@ -55,6 +40,14 @@ public class MahasiswaDemo16 {
         int pss = (int)posisi;
         list.TampilPosisi(cari, pss);
         list.TampilDataSearch(cari, pss);
+
+        System.out.println("----------------------------------------");
+        System.out.println("Menggunakan binary search");
+        System.out.println("----------------------------------------");
+        double posisi2 = list.findBinarySearch(cari, 0, jmlMhs)-1;
+        int pss2 = (int)posisi2;
+        list.TampilPosisi(cari, pss2);
+        list.TampilDataSearch(cari, pss2);   
     }
 
     

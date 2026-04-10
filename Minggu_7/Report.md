@@ -9,9 +9,9 @@
 
 ---
 
-# Jobsheet #6: SORTING (BUBBLE, SELECTION, DAN INSERTION SORT)
+# Jobsheet #7 SEARCHING
 
-## Praktikum 1 - Mengimplementasikan Sorting menggunakan object
+## Searching/ Pencarian Menggunakan Algoritma Sequential Search
 
 **File Kode:** [Sorting16.java](/Minggu_6/Praktikum05/Script/Sorting16.java) [SortingMain16.java](/Minggu_6/Praktikum05/Script/SortingMain16.java)
 
@@ -23,39 +23,33 @@
 | ![Kode Program](Image/2.png) 
 
 ### 1.2 Pertanyaan
-1. **Jelaskan fungsi kode program berikut**
-     ```java
-        if (data[j-1]>data[j]) {
-            temp=data[j];
-            data[j]=data[j-1];
-            data[j-1]=temp;
-        }
-    ```
-    * Memeriksa apakah elemen diseblah kiri lebih besar atau tidak, jika iya maka kedua elemen tersbut akan ditukar dengan bantuan variabel temp
+1. **Jelaskan perbedaan metod tampilDataSearch dan tampilPosisi pada class MahasiswaBerprestasi!**
+     
+    * TampilPosisi: untuk menemukan posisi index ipk mahasiswa yang dicari
+    * TampilDataSearch: Untuk menampilkan data lengkap mahasiswa berdasarkan indeks yang dimasukan
 
-2. **Tunjukkan kode program yang merupakan algoritma pencarian nilai minimum pada selection sort!**
+2. **Jelaskan fungsi break pada kode program di bawah ini!**
 
      ```java
-        for (int j =i+1; j < jumData; j++) {
-            if (data[j]<data[min]) {
-                min=j;
+        if (listMhs[j].ipk==cari) {
+                posisi =j;
+                break;
             }
-        }
         ``` 
 
-3. **Pada Insertion sort ,jelaskan maksud dari kondisi pada perulangan**
-    ```java
-        while (j>=0 && data[j]>temp)
-    ```
+        * Ketika data yag dicari sudah ditemukan maka hentikan proses searching
 
-    * Kondisi ini digunakan pada Insertion Sort untuk menentukan kapan pergeseran elemen harus berhenti:
+3. **Apa fungsi variabel pos atau indeks hasil pencarian dalam program sequential search?**
 
-4. **Pada Insertion sort, apakah tujuan dari perintah**
-    ```java
-        data[j+1]=data[j];
-    ```
+    * Untuk menyimpan hasil dari indeks yang dicari
 
-    * Untuk menggeser elemen ke posisi kanan (satu baris ke depan). Hal ini dilakukan untuk memberikan ruang kosong (slot) bagi variabel temp agar bisa disisipkan pada posisi yang benar di dalam bagian array yang sudah terurut.
+4. **Jika terdapat lebih dari satu data dengan nilai yang sama, hasil pencarian sequential search yang dibuat di atas akan menampilkan data ke berapa? Jelaskan.**
+ 
+    * Data yang pertama kali ditemukan yang akan ditampilkan
+
+5. **Berkaitan dengan pertanyaan nomor 2 di atas, apa yang terjadi jika perintah break dihapus dari kode di atas?**
+ 
+    * Data yag ditampilkan adalah data yang terakhir kali ditemukan
 ---
 
 ## Percobaan #2 Praktikum 2-(Sorting Menggunakan Array of Object) 
@@ -66,100 +60,103 @@
 ### 1.1 Langkah-langkah Percobaan & Dokumentasi
 | Kode Program | Hasil Running |
 | :---: | :---: |
-| ![Kode Program](Image/4.png) | ![Hasil Running](Image/7.png) |
+| ![Kode Program](Image/4.png) | ![Hasil Running](Image/6.png) |
 | ![Kode Program](Image/5.png) 
-  ![Kode Program](Image/6.png) 
 
 ### 1.2 Pertanyaan
-1. **Perhatikan perulangan di dalam bubbleSort() di bawah ini**
+1. **Tunjukkan pada kode program yang mana proses divide dijalankan!**
+
     ```java
-        for (int i = 0; i < listMhs.length-1; i++) {
-            for (int j = 1; j < listMhs.length-i; j++) {
+        mid = (right + left) / 2;
+    ```*
+2. **Tunjukkan pada kode program yang mana proses conquer dijalankan!**
+
+    ```java
+        else if (listMhs[mid].ipk>cari) {
+                return findBinarySearch(cari, left, mid-1);
+            }
+            else {
+                return findBinarySearch(cari, mid+1, right);
+            }
     ```
 
-    * Karena dalam algoritma Bubble Sort dengan n data, kita hanya membutuhkan maksimal n - 1 langkah (iterasi luar) untuk memastikan seluruh data terurut.
-    * Dengan menggunakan - i, kita menghindari pengecekan ulang terhadap elemen-elemen di posisi belakang yang sudah terurut. Hal ini membuat algoritma menjadi lebih efisien.
-    * 49 kali
-        
-2. **Modifikasi program diatas dimana data mahasiswa bersifat dinamis (input dari keyborad) yang terdiri dari nim, nama, kelas, dan ipk!**
+3. **Apa fungsi left, right, dan mid?**
+
+    * left: Menyimpan indeks paling kiri (batas bawah) dari rentang pencarian yang sedang diperiksa.
+
+    * right: Menyimpan indeks paling kanan (batas atas) dari rentang pencarian yang sedang diperiksa
+
+    * mid: Menyimpan indeks tengah yang dihitung dari (left + right) / 2. Indeks ini digunakan sebagai titik pembanding utama dengan nilai yang dicari
+
+4. **Jika data IPK yang dimasukkan tidak urut. Apakah program masih dapat berjalan? Mengapa demikian?**
+
+    * Program tetap akan berjalan (tidak akan crash atau error), namun hasilnya tidak akurat. Karena Binary Search bekerja dengan asumsi bahwa data sudah terurut. Jika data acak, logika pembuangan "setengah bagian" tidak akan berlaku.
+
+5. **Jika IPK yang dimasukkan dari IPK terbesar ke terkecil (misal: 3.8, 3.7, 3.5, 3.4, 3.2) dan elemen yang dicari adalah 3.2. Bagaimana hasil dari binary search? Apakah sesuai? Jika tidak sesuai maka
+ubahlah kode program binary seach agar hasilnya sesuai**
+
+    * hasil Binary Search asli tidak akan menemukannya. Hal ini dikarenakan logika pada kode Anda dikhususkan untuk data Ascending (terkecil ke terbesar).
 
     ```java
+        int findBinarySearchDescending(double cari, int left, int right) {
+        int mid;
+        if (right >= left) {
+            mid = (right + left) / 2;
+            if (cari == listMhs[mid].ipk) {
+                return (mid);
+            }
+           
+            else if (listMhs[mid].ipk < cari) { 
+                return findBinarySearchDescending(cari, left, mid - 1);
+            }
+          
+            else {
+                return findBinarySearchDescending(cari, mid + 1, right);
+            }
+        }
+        return -1;
+    }
+    ```
+
+6. **Jelaskan bagaimana binary search menentukan bahwa data yang dicari tidak ditemukan di dalam array.**
+
+    * Binary Search menentukan bahwa data tidak ditemukan ketika nilai left sudah lebih besar daripada right (left > right).
+
+7. **Modifikasi program di atas yang mana jumlah mahasiswa yang diinputkan sesuai dengan masukan dari keyboard.**
+
+    ```java
+        public class MahasiswaBerprestasi16 {
+        Mahasiswa16[] listMhs; 
+        int idx;
+
+        public MahasiswaBerprestasi16(int jumlah) {
+            listMhs = new Mahasiswa16[jumlah];
+        }
+    }
+    ```
+
+    ```java
+        public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        MahasiswaBerprestasi16 list = new MahasiswaBerprestasi16();
         
         System.out.print("Masukkan jumlah mahasiswa: ");
         int jmlMhs = sc.nextInt();
         sc.nextLine(); 
 
+        // Inisialisasi list dengan jumlah yang diinputkan
+        MahasiswaBerprestasi16 list = new MahasiswaBerprestasi16(jmlMhs);
+        
         for (int i = 0; i < jmlMhs; i++) {
-            System.out.println("--- Masukkan Data Mahasiswa ke-" + (i + 1) + " ---");
-            System.out.print("NIM   : ");
-            String nim = sc.nextLine();
-            System.out.print("Nama  : ");
-            String nama = sc.nextLine();
-            System.out.print("Kelas : ");
-            String kelas = sc.nextLine();
-            System.out.print("IPK   : ");
-            double ipk = sc.nextDouble();
-            sc.nextLine();
-
+            // ... (proses input data sama seperti sebelumnya) ...
             Mahasiswa16 m = new Mahasiswa16(nim, nama, kelas, ipk);
             list.Tambah(m);
         }
+        
+        // Saat memanggil binary search, gunakan jmlMhs - 1 sebagai batas kanan (right)
+        System.out.println("Menggunakan binary search");
+        int posisi2 = list.findBinarySearch(cari, 0, jmlMhs - 1); 
+        list.TampilPosisi(cari, posisi2);
+        list.TampilDataSearch(cari, posisi2);   
+    }
     ```
-## 5.3.5 Mengurutkan Data Mahasiswa Berdasarkan IPK (Selection Sort)
-| Kode Program | Hasil Running |
-| :---: | :---: |
-| ![Kode Program](Image/8.png) | ![Hasil Running](Image/9.png) |
-
-### 1.2 Pertanyaan
-1. **Di dalam method selection sort, terdapat baris program seperti di bawah ini:**
-    ```java
-        int idxMin=i;
-            for (int j = i+1; j < listMhs.length; j++) {
-                if (listMhs[j].ipk<listMhs[idxMin].ipk) {
-                    idxMin=j;
-                }
-    ```
-
-    * Tujuan dari proses ini adalah menandai atau mengunci posisi (indeks) elemen dengan IPK terkecil dalam rentang data yang belum terurut. Setelah perulangan j selesai, nilai pada listMhs[idxMin] barulah akan ditukar (swap) ke posisi depan (indeks i) untuk mengurutkan data secara menaik (ascending).
-
-## 5.4 Mengurutkan Data Mahasiswa Berdasarkan IPK Menggunakan Insertion Sort
-| Kode Program | Hasil Running |
-| :---: | :---: |
-| ![Kode Program](Image/10.png) | ![Hasil Running](Image/11.png) |
-
-### 1.2 Pertanyaan
-1. **Ubahlah fungsi pada InsertionSort sehingga fungsi ini dapat melaksanakan proses sorting dengan cara descending**
-    ```java
-        void InsertionSort() {
-            for (int i = 1; i < listMhs.length; i++) {
-                Mahasiswa16 temp = listMhs[i];
-                int j = i;
-                // Cukup ubah operator '>' menjadi '<'
-                while (j > 0 && listMhs[j - 1].ipk < temp.ipk) { 
-                    listMhs[j] = listMhs[j - 1];
-                    j--;
-                }
-                listMhs[j] = temp;
-            }
-        }
-    ```
-
----
-
-
-## 5.5 Latihan Praktikum
-
-**File Kode:** [DataDosen16.java](Script/DataDosen16.java) 
-[Dosen16.java](Script/Dosen16.java)
-[DosenMain16.java](Script/DosenMain16.java)
-
-### 1.1 Langkah-langkah & Dokumentasi
-| Kode Program | Hasil Running |
-| :---: | :---: |
-| ![Kode Program](Image/12.png) | ![Hasil Running](Image/15.png) |
-| ![Kode Program](Image/13.png) | ![Hasil Running](Image/16.png) |
-| ![Kode Program](Image/14.png) |  
-
----
+    
