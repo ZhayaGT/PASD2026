@@ -1,5 +1,7 @@
 package Minggu_9.Script;
 
+import java.util.Stack;
+
 public class StackTugasMahasiswa16 {
     Mahasiswa16[] stack;
     int top;
@@ -61,5 +63,20 @@ public class StackTugasMahasiswa16 {
             System.out.println(stack[i].nama + "\t" + stack[i].nim + "\t" + stack[i].kelas);
         }
         System.out.println("");
+    }
+
+    public String KonversiDesimalKeBiner(int nilai) {
+        nilai = 87;
+        StackKonversi16 stack = new StackKonversi16();
+        while (nilai > 0) {
+            int sisa = nilai % 2;
+            stack.push(sisa);
+            nilai = nilai / 2;
+        }
+        String biner = new String();
+        while (!stack.isEmpty()) {
+            biner += stack.pop();            
+        }
+        return biner;
     }
 }
