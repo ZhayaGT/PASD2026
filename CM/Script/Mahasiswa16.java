@@ -22,5 +22,7 @@ public class Mahasiswa16 {
         System.out.print(" | ");
         System.out.print("Prodi: " + prodi);
         System.out.println();
+
+        
     }
 }
