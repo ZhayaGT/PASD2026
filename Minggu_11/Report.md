@@ -9,7 +9,7 @@
 
 ---
 
-# Jobsheet #10 QUEUE
+# Jobsheet #11 Single Linked List
 
 ## Percobaan 1 : Pembuatan Single Linked List
 
